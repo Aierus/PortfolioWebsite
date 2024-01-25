@@ -8,6 +8,11 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+[data-theme='dark'] {
+  --background: black;
+  --foreground: white;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -24,4 +29,38 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.link {
+  stroke: #3A505C;
+}
+
+.svg {
+  min-width: 300px;
+  max-height: 500px;
+  width: 100%;
+  overflow: hidden;
+  fill: #3A505C;
+  font-size: 14px;
+}
+
+.section {
+    transition: background-color 0.3s;
+    opacity: 0;
+}
+
+.section.active {
+    background-color: #ddd; /* Add styling for the active section */
+    opacity: 1;
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s, transform 0.5s ease-out;
+}
+
+.section.active .fade-in-left {
+    opacity: 1;
+    transform: translateX(0);
 }
