@@ -13,7 +13,7 @@ export default async function Page({params}) {
   const postData = await getPostData(params.slug)
   return (
     <BlogPostLayout>
-      <div className="relative flex w-full flex-col items-center justify-center py-6 dark:bg-slate-800">
+      <div className="relative flex w-full flex-col items-center justify-center py-6 text-black bg-neutral-300 dark:bg-slate-800 dark:text-white">
         <div className="container">
           <h1 className="dark:text-white">{postData.title}</h1>
         </div>

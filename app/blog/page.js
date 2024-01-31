@@ -4,26 +4,13 @@ import Link from 'next/link'
 export default function Page({params}) {
   const posts = getAllPostSlugs();
   const allPostsData = getSortedPostsData();
-  // console.log("hello world");
-  // console.log(JSON.stringify(allPostsData));
 
   return (
     <div>
       Index of Posts:
-      <ul>{posts.map((post) =>
-        <li key={post.title}> <Link href={`/blog/${post.params.slug}`}>{post.params.slug} </Link></li>
+      <ul>{allPostsData.map(({slug, date, title}) =>
+        <li key={title}> <Link href={`/blog/${slug}`}>{slug}: {date}</Link></li>
       )}</ul>
-      <ul>
-        {allPostsData.map(({slug, date, title}) => (
-          <li className="py-4" key={slug}>
-            {title}
-            <br />
-            {slug}
-            <br />
-            {date}
-          </li>
-        ))}
-      </ul>
     </div >
   )
 }

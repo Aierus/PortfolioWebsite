@@ -19,7 +19,9 @@ export function getAllPostSlugs() {
   });
 }
 export function getSortedPostsData() {
-  const fileNames = fs.readdirSync(postsDirectory);
+  const ogFileNames = fs.readdirSync(postsDirectory);
+  const regexToRemove = /^page\.js$/;
+  const fileNames = ogFileNames.filter(fileName => !regexToRemove.test(fileName));
 
   const allPostsData = fileNames.map((fileName) => {
     const slug = fileName.replace(/\.md$/, '');

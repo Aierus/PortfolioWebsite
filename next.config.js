@@ -4,7 +4,12 @@ const nextConfig = {
     config.resolve.alias.canvas = false
     config.resolve.alias.encoding = false
     return config
-  }
+  },
+  experimental: {
+    serverActions: {
+      allowedForwardedHosts: ['andyrclark.com'],
+    },
+  },
 }
 
 module.exports = nextConfig
